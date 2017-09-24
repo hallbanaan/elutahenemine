@@ -58,16 +58,57 @@ public class Tests {
     }
 
     @Test
+    public void testWeatherForecastByCityZIPCode(){
+
+    }
+
+    @Test
     public void invalidCityIDShouldThrowIllegalArgumentException(){
 
     }
 
     @Test
-    public void shouldParseCurrentTemperature(){}
+    public void shouldParseCurrentTemperature(){
+
+    }
 
     @Test
-    public void shouldParseThreeDayWeatherForecast(){}
+    public void shouldParseMaxTemperature(){
+
+    }
 
     @Test
-    public void shouldParseCityName(){}
+    public void shouldParseMinTemperature(){
+
+    }
+
+    @Test
+    public void shouldParseWeatherData(){
+
+    }
+
+    @Test
+    public void shouldParseCityName(){
+
+    }
+
+    @Test
+    public void testHighestPossibleTemperature(){
+
+    }
+
+    @Test
+    public void testLowestPossibleTemperature(){
+
+    }
+
+    @Test
+    public void testExceedsHighestTemperatureShouldThrowException(){
+
+    }
+
+    @Test
+    public void testExceedsLowestTemperatureShouldThrowException(){
+        
+    }
 }
