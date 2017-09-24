@@ -13,5 +13,22 @@ public class Tests {
     }
 
     @Test
-    public void 
+    public void invalidCityNameShouldReturnZero(){
+
+    }
+
+    @Test
+    public void testLowestTemperatureForThreeDays(){
+
+    }
+
+    @Test
+    public void testHighestTemperatureForThreeDays(){
+
+    }
+
+    @Test
+    public void testHighestEqualsLowestTemperatureForThreeDays(){
+        
+    }
 }
