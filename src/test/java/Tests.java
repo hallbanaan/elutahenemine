@@ -3,7 +3,17 @@ import org.junit.Test;
 public class Tests {
 
     @Test
-    public void invalidCoordinatesShouldReturnZero(){
+    public void invalidCoordinatesShouldThrowIllegalArgumentException(){
+
+    }
+
+    @Test
+    public void invalidLongitudeCoordShouldThrowIllegalArgumentException(){
+
+    }
+
+    @Test
+    public void invalitLatitudeCoordShouldThrowIllegalArgumentException(){
 
     }
 
@@ -13,7 +23,7 @@ public class Tests {
     }
 
     @Test
-    public void invalidCityNameShouldReturnZero(){
+    public void invalidCityNameShouldThrowIllegalArgumentException(){
 
     }
 
@@ -28,7 +38,27 @@ public class Tests {
     }
 
     @Test
-    public void testHighestEqualsLowestTemperatureForThreeDays(){
+    public void testHighestTemperatureEqualsLowestTemperatureForThreeDays(){
+
+    }
+
+    @Test
+    public void testReturnsCurrentTemperature(){
+
+    }
+
+    @Test
+    public void testWeatherForecastByCityName(){
+
+    }
+
+    @Test
+    public void testWeatherForecastByCityID(){
+
+    }
+
+    @Test
+    public void invalidCityIDShouldThrowIllegalArgumentException(){
         
     }
 }
