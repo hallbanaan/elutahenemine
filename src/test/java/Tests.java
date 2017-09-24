@@ -59,6 +59,15 @@ public class Tests {
 
     @Test
     public void invalidCityIDShouldThrowIllegalArgumentException(){
-        
+
     }
+
+    @Test
+    public void shouldParseCurrentTemperature(){}
+
+    @Test
+    public void shouldParseThreeDayWeatherForecast(){}
+
+    @Test
+    public void shouldParseCityName(){}
 }
