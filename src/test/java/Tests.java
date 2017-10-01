@@ -43,62 +43,34 @@ public class Tests {
     }
 
     @Test
-    public void testWeatherForecastByCityID(){
-
+    public void testReturnsMaxTemperature(){
+        try{
+            weatherResponse.getMaxTemperature();
+        } catch (Exception e){
+            fail("Test failed because: " + e.getMessage());
+        }
     }
 
     @Test
-    public void testWeatherForecastByCityZIPCode(){
-
+    public void testReturnsMinTemperature(){
+        try{
+            weatherResponse.getMinTemperature();
+        } catch (Exception e){
+            fail("Test failed because: " + e.getMessage());
+        }
     }
+
 
     @Test
-    public void invalidCityIDShouldThrowIllegalArgumentException(){
+    public void testIfTemperatureIsValid(){
+        try{
+            double currentTemperature = weatherResponse.getCurrentTemperature();
+            assert(currentTemperature >= -100);
+            assert(currentTemperature <= 100);
+        } catch (Exception e){
+            fail("Test failed because: " + e.getMessage());
+        }
 
     }
-
-    @Test
-    public void shouldParseCurrentTemperature(){
-
-    }
-
-    @Test
-    public void shouldParseMaxTemperature(){
-
-    }
-
-    @Test
-    public void shouldParseMinTemperature(){
-
-    }
-
-    @Test
-    public void shouldParseWeatherData(){
-
-    }
-
-    @Test
-    public void shouldParseCityName(){
-
-    }
-
-    @Test
-    public void testHighestPossibleTemperature(){
-
-    }
-
-    @Test
-    public void testLowestPossibleTemperature(){
-
-    }
-
-    @Test
-    public void testExceedsHighestTemperatureShouldThrowException(){
-
-    }
-
-    @Test
-    public void testExceedsLowestTemperatureShouldThrowException(){
-
-    }
+    
 }
