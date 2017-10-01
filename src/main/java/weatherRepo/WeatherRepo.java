@@ -10,15 +10,15 @@ public class WeatherRepo {
         throw new UnsupportedOperationException("Coming soon");
     }
 
-    public static int getCurrentTemperature(){
+    public static double getCurrentTemperature(){
         throw new UnsupportedOperationException("Coming soon");
     }
 
-    public static int getThreeDayMaxTemp(){
+    public static double getThreeDayMaxTemp(){
         throw new UnsupportedOperationException("Coming soon");
     }
 
-    public static int getThreeDayMinTemp(){
+    public static double getThreeDayMinTemp(){
         throw new UnsupportedOperationException("Coming soon");
     }
 

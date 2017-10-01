@@ -4,25 +4,14 @@ import org.junit.Test;
 import weatherRepo.WeatherRepo;
 
 public class Tests {
-    
+
     @Test
     public void testAPIConnection(){
 
     }
 
-
     @Test
-    public void testMinTemperatureForThreeDays(){
-
-    }
-
-    @Test
-    public void testMaxTemperatureForThreeDays(){
-
-    }
-
-    @Test
-    public void testHighestTemperatureEqualsLowestTemperatureForThreeDays(){
+    public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
 
     }
 
