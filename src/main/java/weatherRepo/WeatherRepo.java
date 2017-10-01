@@ -1,7 +1,14 @@
 package weatherRepo;
 
-public class WeatherRepo {
+public class WeatherRepo implements Weather{
 
+    public CurrentWeatherReport getCurrentWeather(WeatherRequest request){
+        throw new UnsupportedOperationException("Coming soon");
+    }
+
+    public ThreeDayWeatherReport getThreeDayWeather(WeatherRequest request){
+        throw new UnsupportedOperationException("Coming soon");
+    }
     public static String getCityByID(){
         throw new UnsupportedOperationException("Coming soon");
     }
