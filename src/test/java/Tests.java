@@ -1,13 +1,10 @@
 import openWeatherAPI.OpenWeatherRequest;
 import org.junit.Before;
 import org.junit.Test;
+import weatherRepo.WeatherRepo;
 
 public class Tests {
-
-    @Before
-    public static void setUpTests(){
-        request = new OpenWeatherRequest();
-    }
+    
     @Test
     public void testAPIConnection(){
 
