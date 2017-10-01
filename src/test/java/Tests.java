@@ -1,9 +1,18 @@
 import openWeatherAPI.OpenWeatherRequest;
 import org.junit.Before;
-import org.junit.Test;
 import weatherRepo.WeatherRepo;
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.fail;
 
 public class Tests {
+
+    @Before
+    public static void setUpTests(){
+       OpenWeatherRequest weatherRequest = new OpenWeatherRequest("Tallinn", "EE");
+    }
 
     @Test
     public void testAPIConnection(){
@@ -12,17 +21,25 @@ public class Tests {
 
     @Test
     public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
-
+        double maxTemp = weatherRequest.getThreeDayMaxTemp();
+        double minTemp = weatherRequest.getThreeDayMinTemp();
+        assertTrue(maxTemp >= minTemp);
     }
 
     @Test
     public void testReturnsCurrentTemperature(){
-
+        try{
+            weatherRequest.getCurrentTempterature();
+        } catch (Exception e) {
+            fail("Test failed because: " + e.getMessage());
+        }
     }
 
     @Test
-    public void testWeatherForecastByCityName(){
-
+    public void testIfWeatherForecastByCityNameResponseCityIsCorrect(){
+        String requestCity = weatherRequest.getCityName();
+        String responseCity = weatherResponse.getCityName();
+        assertEquals(requestCity, responseCity);
     }
 
     @Test
