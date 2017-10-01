@@ -1,39 +1,26 @@
+import openWeatherAPI.OpenWeatherRequest;
+import org.junit.Before;
 import org.junit.Test;
 
 public class Tests {
 
-    @Test
-    public void invalidCoordinatesShouldThrowIllegalArgumentException(){
-
+    @Before
+    public static void setUpTests(){
+        request = new OpenWeatherRequest();
     }
-
-    @Test
-    public void invalidLongitudeCoordShouldThrowIllegalArgumentException(){
-
-    }
-
-    @Test
-    public void invalitLatitudeCoordShouldThrowIllegalArgumentException(){
-
-    }
-
     @Test
     public void testAPIConnection(){
 
     }
 
+
     @Test
-    public void invalidCityNameShouldThrowIllegalArgumentException(){
+    public void testMinTemperatureForThreeDays(){
 
     }
 
     @Test
-    public void testLowestTemperatureForThreeDays(){
-
-    }
-
-    @Test
-    public void testHighestTemperatureForThreeDays(){
+    public void testMaxTemperatureForThreeDays(){
 
     }
 
