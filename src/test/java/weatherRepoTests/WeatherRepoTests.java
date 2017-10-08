@@ -1,5 +1,6 @@
 package weatherRepoTests;
 
+import model.WeatherRequest;
 import org.json.JSONObject;
 import org.junit.Test;
 import weatherRepo.WeatherRepo;
@@ -11,6 +12,9 @@ public class WeatherRepoTests {
 
     @Test
     public void testReturnsCurrentTemperature(){
+        WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setUnits("Metric");
         JSONObject weatherReport = WeatherRepo.getCityWeatherInformationJSON("Tallinn");
         try{
             WeatherRepo.getCurrentTemperature(weatherReport);
@@ -22,8 +26,13 @@ public class WeatherRepoTests {
     @Test
     public void testIfWeatherReportByCityNameResponseCityIsCorrect(){
         String requestCity = "Tallinn";
+        WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setUnits("Metric");
+        JSONObject result;
         try {
-            String responseCity = WeatherRepo.getCityName(WeatherRepo.getCityWeatherInformationJSON(requestCity));
+            result = WeatherRepo.getCityWeatherInformationJSON(requestCity);
+            String responseCity = WeatherRepo.getCityName(result);
             assertEquals(requestCity, responseCity);
         } catch (Exception e){
             fail("Test failed because: " + e.getMessage());
@@ -33,7 +42,12 @@ public class WeatherRepoTests {
     @Test
     public void testIfTemperatureIsValid(){
         try{
-            double currentTemperature = WeatherRepo.getCurrentTemperature(WeatherRepo.getCityWeatherInformationJSON("Tallinn"));
+            WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+            WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+            WeatherRepo.setUnits("Metric");
+            JSONObject result;
+            result = WeatherRepo.getCityWeatherInformationJSON("Tallinn");
+            double currentTemperature = WeatherRepo.getCurrentTemperature(result);
             assert(currentTemperature >= -100);
             assert(currentTemperature <= 100);
         } catch (Exception e){
@@ -44,6 +58,8 @@ public class WeatherRepoTests {
     @Test
     public void testIfReturnsJsonForCityWeatherReport(){
         try{
+            WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+            WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
             WeatherRepo.getCityWeatherInformationJSON("Tallinn");
         } catch (Exception e){
             fail("Test failed because: " + e.getMessage());
