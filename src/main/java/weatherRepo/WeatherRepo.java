@@ -32,33 +32,25 @@ public class WeatherRepo implements Weather{
             }
         } catch (MalformedURLException e){
             System.out.println(e.getMessage());
+        } return weatherReportJson;
+    }
+
+    public static double getCurrentTemperature(JSONObject weatherReportJson){
+        try {
+            JSONObject mainInfo = weatherReportJson.getJSONObject("main");
+            return double currentTemperature = mainInfo.getDouble("temp");
+        } catch (JSONException e){
+            return e.getMessage()
         }
     }
 
-    public static getCurrentWeatherReport (WeatherRequest request){
-        throw new UnsupportedOperationException("Not yet");
-    }
-    public ThreeDayWeatherReport getThreeDayWeather(WeatherRequest request){
-        throw new UnsupportedOperationException("Coming soon");
-    }
-    public static String getCityByID(){
-        throw new UnsupportedOperationException("Coming soon");
-    }
-
-    public static String getThreeDayForecast(){
-        throw new UnsupportedOperationException("Coming soon");
-    }
-
-    public static double getCurrentTemperature(){
-        throw new UnsupportedOperationException("Coming soon");
-    }
 
     public static double getThreeDayMaxTemp(){
-        throw new UnsupportedOperationException("Coming soon");
+
     }
 
     public static double getThreeDayMinTemp(){
-        throw new UnsupportedOperationException("Coming soon");
+        
     }
 
     public static String changeWeatherUnit(String newUnit){
