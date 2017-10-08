@@ -23,11 +23,10 @@ public class WeatherRepo implements Weather{
             URL url = new URL(apiCallUrl + cityName + "&units=" + units + "&appid=" + apiKey);
             URLConnection newCon = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(newCon.getInputStream()));
-            String result = reader.readLine();
+            String readerResult = reader.readLine();
             reader.close();
             try{
-                weatherReportJson = new JSONObject(result);
-                return weatherReportJson;
+                weatherReportJson = new JSONObject(readerResult);
             } catch (JSONException e){
                 System.out.println(e.getMessage());
             }
@@ -52,29 +51,19 @@ public class WeatherRepo implements Weather{
             JSONObject mainInfo = weatherReportJson.getJSONObject("main");
             return double currentTemperature = mainInfo.getDouble("temp");
         } catch (JSONException e){
-            return e.getMessage()
+            System.out.println(e.getMessage());
         }
     }
 
-    public static double getTemperatureForSpecificDay(int day){
-        JSONObject weatherReportJson;
-        double temperatureForDay = 0;
+    public static String getCityName(JSONObject weatherReportJson){
+        String cityName = "Null";
         try{
-            weatherReportJson = getCityWeatherInformationJSON("Tallinn");
-            JSONObject weatherForDay =
+            cityName = weatherReportJson.getString("name");
+        } catch (JSONException e){
+            System.out.println(e.getMessage());
         }
     }
-
-
-    public static double getThreeDayMaxTemp(){
-
-    }
-
-    public static double getThreeDayMinTemp(){
-
-    }
-
-    public static String changeWeatherUnit(String newUnit){
+   public static String changeWeatherUnit(String newUnit){
         if (newUnit == "Metric" || newUnit == "Imperial" || newUnit == "Kelvin"){
             units = newUnit;
             return "Units sucessfully changed to: " + newUnit;

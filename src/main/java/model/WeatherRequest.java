@@ -1,5 +1,6 @@
 package model;
 
+import weatherRepo.WeatherFor;
 import weatherRepo.WeatherRepo;
 
 public class WeatherRequest {
@@ -14,6 +15,10 @@ public class WeatherRequest {
         WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
         WeatherRepo.changeWeatherUnit(units);
+
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
+        WeatherFor.changeWeatherUnit(units);
 
     }
 
