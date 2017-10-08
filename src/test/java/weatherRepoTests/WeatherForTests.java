@@ -14,7 +14,7 @@ public class WeatherForTests {
     @Test
     public void testIfReturnsJsonForCityForecast(){
         WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
         WeatherFor.setUnits("Metric");
         JSONObject forecast;
         try {
@@ -27,8 +27,8 @@ public class WeatherForTests {
     @Test
     public void testIfWeatherForecastByCityNameResponseCityIsCorrect(){
         WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherFor.setUnits("Metric");
+        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherFor.setUnits("metric");
         JSONObject forecast;
         String requestCity = "Tallinn";
         try {
@@ -44,7 +44,7 @@ public class WeatherForTests {
     public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
         WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
         WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherFor.setUnits("Metric");
+        WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         double maxTemp = WeatherFor.getThreeDayMaxTemp(forecast);
         double minTemp = WeatherFor.getThreeDayMinTemp(forecast);
@@ -56,7 +56,7 @@ public class WeatherForTests {
     public void testReturnsMaxTemperatureforThreeDays(){
         WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
         WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherFor.setUnits("Metric");
+        WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         try{
             WeatherFor.getThreeDayMaxTemp(forecast);
@@ -69,7 +69,7 @@ public class WeatherForTests {
     public void testReturnsMinTemperatureforThreeDays(){
         WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
         WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherFor.setUnits("Metric");
+        WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         try{
             WeatherFor.getThreeDayMinTemp(forecast);

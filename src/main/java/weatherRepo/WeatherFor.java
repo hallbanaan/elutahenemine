@@ -84,7 +84,7 @@ public class WeatherFor implements Weather{
     }
 
     public static String changeWeatherUnit(String newUnit){
-        if (newUnit == "Metric" || newUnit == "Imperial" || newUnit == "Kelvin"){
+        if (newUnit == "metric" || newUnit == "imperial" || newUnit == "kelvin"){
             units = newUnit;
             return "Units sucessfully changed to: " + newUnit;
         } else {
