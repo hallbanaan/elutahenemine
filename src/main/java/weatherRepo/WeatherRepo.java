@@ -1,6 +1,7 @@
 package weatherRepo;
 
 import model.WeatherRequest;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,6 +36,17 @@ public class WeatherRepo implements Weather{
         } return weatherReportJson;
     }
 
+    public static JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int day){
+        JSONArray list;
+        JSONObject forecast = null;
+        try{
+            list = weatherReportJson.getJSONArray("list");
+            forecast = list.getJSONObject(day);
+        } catch (JSONException e){
+            System.out.println(e.getMessage());
+        } return forecast;
+    }
+
     public static double getCurrentTemperature(JSONObject weatherReportJson){
         try {
             JSONObject mainInfo = weatherReportJson.getJSONObject("main");
@@ -44,13 +56,22 @@ public class WeatherRepo implements Weather{
         }
     }
 
+    public static double getTemperatureForSpecificDay(int day){
+        JSONObject weatherReportJson;
+        double temperatureForDay = 0;
+        try{
+            weatherReportJson = getCityWeatherInformationJSON("Tallinn");
+            JSONObject weatherForDay =
+        }
+    }
+
 
     public static double getThreeDayMaxTemp(){
 
     }
 
     public static double getThreeDayMinTemp(){
-        
+
     }
 
     public static String changeWeatherUnit(String newUnit){
