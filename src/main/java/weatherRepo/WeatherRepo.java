@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -35,24 +36,15 @@ public class WeatherRepo implements Weather{
         } return weatherReportJson;
     }
 
-    public static JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int day){
-        JSONArray list;
-        JSONObject forecast = null;
-        try{
-            list = weatherReportJson.getJSONArray("list");
-            forecast = list.getJSONObject(day);
-        } catch (JSONException e){
-            System.out.println(e.getMessage());
-        } return forecast;
-    }
-
     public static double getCurrentTemperature(JSONObject weatherReportJson){
+        double currentTemperature = 0;
         try {
             JSONObject mainInfo = weatherReportJson.getJSONObject("main");
-            return double currentTemperature = mainInfo.getDouble("temp");
+            return currentTemperature = mainInfo.getDouble("temp");
         } catch (JSONException e){
             System.out.println(e.getMessage());
         }
+        return 0;
     }
 
     public static String getCityName(JSONObject weatherReportJson){
@@ -61,8 +53,9 @@ public class WeatherRepo implements Weather{
             cityName = weatherReportJson.getString("name");
         } catch (JSONException e){
             System.out.println(e.getMessage());
-        }
+        } return cityName;
     }
+
    public static String changeWeatherUnit(String newUnit){
         if (newUnit == "Metric" || newUnit == "Imperial" || newUnit == "Kelvin"){
             units = newUnit;
