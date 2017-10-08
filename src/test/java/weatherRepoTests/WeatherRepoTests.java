@@ -1,30 +1,13 @@
-import model.WeatherRequest;
-import openWeatherAPI.OpenWeatherRequest;
+package weatherRepoTests;
+
 import org.json.JSONObject;
-import org.junit.Before;
-import weatherRepo.Weather;
-import weatherRepo.WeatherFor;
-import weatherRepo.WeatherRepo;
 import org.junit.Test;
+import weatherRepo.WeatherRepo;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
 import static junit.framework.TestCase.fail;
 
-public class Tests {
-
-
-    @Test
-    public void testAPIConnection(){
-
-    }
-
-    @Test
-    public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
-        double maxTemp = WeatherFor.getThreeDayMaxTemp();
-        double minTemp = WeatherFor.getThreeDayMinTemp();
-        assertTrue(maxTemp >= minTemp);
-    }
+public class WeatherRepoTests {
 
     @Test
     public void testReturnsCurrentTemperature(){
@@ -37,45 +20,42 @@ public class Tests {
     }
 
     @Test
-    public void testIfWeatherForecastByCityNameResponseCityIsCorrect(){
+    public void testIfWeatherReportByCityNameResponseCityIsCorrect(){
         String requestCity = "Tallinn";
         try {
             String responseCity = WeatherRepo.getCityName(WeatherRepo.getCityWeatherInformationJSON(requestCity));
             assertEquals(requestCity, responseCity);
         } catch (Exception e){
-            
-        }
-    }
-
-    @Test
-    public void testReturnsMaxTemperature(){
-        try{
-            weatherResponse.getMaxTemperature();
-        } catch (Exception e){
             fail("Test failed because: " + e.getMessage());
         }
     }
-
-    @Test
-    public void testReturnsMinTemperature(){
-        try{
-            weatherResponse.getMinTemperature();
-        } catch (Exception e){
-            fail("Test failed because: " + e.getMessage());
-        }
-    }
-
 
     @Test
     public void testIfTemperatureIsValid(){
         try{
-            double currentTemperature = WeatherRepo.getCurrentTemperature();
+            double currentTemperature = WeatherRepo.getCurrentTemperature(WeatherRepo.getCityWeatherInformationJSON("Tallinn"));
             assert(currentTemperature >= -100);
             assert(currentTemperature <= 100);
         } catch (Exception e){
             fail("Test failed because: " + e.getMessage());
         }
-
     }
 
+    @Test
+    public void testIfReturnsJsonForCityWeatherReport(){
+        try{
+            WeatherRepo.getCityWeatherInformationJSON("Tallinn");
+        } catch (Exception e){
+            fail("Test failed because: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testIfUnitChangeRejectsFaultyUnit(){
+        try{
+            WeatherRepo.changeWeatherUnit("Potato");
+        } catch (Exception e){
+            fail("Test failed because: " + e.getMessage());
+        }
+    }
 }
