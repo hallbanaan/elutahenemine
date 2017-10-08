@@ -1,6 +1,7 @@
 package model;
 
 import javax.imageio.IIOException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -15,7 +16,7 @@ public class Connection {
             return true;
         } catch (MalformedURLException e){
             throw new RuntimeException(e);
-        } catch (IIOException e){
+        } catch (IOException e){
             return false;
         }
     }

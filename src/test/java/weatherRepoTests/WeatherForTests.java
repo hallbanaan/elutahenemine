@@ -1,5 +1,6 @@
 package weatherRepoTests;
 
+import org.json.JSONObject;
 import org.junit.Test;
 import weatherRepo.WeatherFor;
 import weatherRepo.WeatherRepo;
@@ -32,8 +33,9 @@ public class WeatherForTests {
 
     @Test
     public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
-        double maxTemp = WeatherFor.getThreeDayMaxTemp();
-        double minTemp = WeatherFor.getThreeDayMinTemp();
+        JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
+        double maxTemp = WeatherFor.getThreeDayMaxTemp(forecast);
+        double minTemp = WeatherFor.getThreeDayMinTemp(forecast);
         assertTrue(maxTemp >= minTemp);
     }
 

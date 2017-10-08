@@ -33,7 +33,9 @@ public class WeatherRepo implements Weather{
             }
         } catch (MalformedURLException e){
             System.out.println(e.getMessage());
-        } return weatherReportJson;
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }return weatherReportJson;
     }
 
     public static double getCurrentTemperature(JSONObject weatherReportJson){
