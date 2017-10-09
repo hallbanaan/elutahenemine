@@ -13,9 +13,9 @@ public class WeatherForTests {
 
     @Test
     public void testIfReturnsJsonForCityForecast(){
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
-        WeatherFor.setUnits("Metric");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherFor.setUnits("metric");
         JSONObject forecast;
         try {
             forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
@@ -26,8 +26,8 @@ public class WeatherForTests {
 
     @Test
     public void testIfWeatherForecastByCityNameResponseCityIsCorrect(){
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherFor.setUnits("metric");
         JSONObject forecast;
         String requestCity = "Tallinn";
@@ -42,8 +42,8 @@ public class WeatherForTests {
 
     @Test
     public void testHighestTemperatureAndLowestTemperatureForThreeDays(){
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         double maxTemp = WeatherFor.getThreeDayMaxTemp(forecast);
@@ -54,8 +54,8 @@ public class WeatherForTests {
 
     @Test
     public void testReturnsMaxTemperatureforThreeDays(){
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         try{
@@ -67,8 +67,8 @@ public class WeatherForTests {
 
     @Test
     public void testReturnsMinTemperatureforThreeDays(){
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
         try{

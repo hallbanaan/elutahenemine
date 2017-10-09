@@ -12,12 +12,12 @@ public class WeatherRequest {
         this.cityName = cityName;
         this.units = units;
 
-        WeatherRepo.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
+        WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
         WeatherRepo.changeWeatherUnit(units);
 
-        WeatherFor.setApiKey("adcbffcebeea43ec2d5db311c52848bd");
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/weatherforecast?q=");
+        WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
+        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
         WeatherFor.changeWeatherUnit(units);
 
     }
