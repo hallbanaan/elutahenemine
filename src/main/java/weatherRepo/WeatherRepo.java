@@ -24,13 +24,16 @@ public class WeatherRepo implements Weather{
             URL url = new URL(apiCallUrl + cityName + "&units=" + units + "&appid=" + apiKey);
             URLConnection newCon = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(newCon.getInputStream()));
-            String readerResult = reader.readLine();
-            reader.close();
-            try{
-                weatherReportJson = new JSONObject(readerResult);
-            } catch (JSONException e){
-                System.out.println(e.getMessage());
+            String line;
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
+                try{
+                    weatherReportJson = new JSONObject(line.toString());
+                } catch (JSONException e){
+                    System.out.println(e.getMessage());
+                }
             }
+            reader.close();
         } catch (MalformedURLException e){
             System.out.println(e.getMessage());
         } catch (IOException e){

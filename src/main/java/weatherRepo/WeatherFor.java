@@ -23,7 +23,7 @@ public class WeatherFor implements Weather{
     public static JSONObject getCityForecastInfoJSON (String cityName){
         JSONObject weatherReportJson = null;
         try {
-            URL url = new URL(apiCallUrl + cityName + "&units" + units + "&appid=" + apiKey);
+            URL url = new URL(apiCallUrl + cityName + "&units=" + units + "&appid=" + apiKey);
             URLConnection newCon = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(newCon.getInputStream()));
             String readerResult = reader.readLine();
