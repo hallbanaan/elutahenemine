@@ -69,15 +69,14 @@ public class WeatherFor implements Weather{
          return cityName;
     }
 
-    public static String getThreeDayMaxTemp(JSONObject weatherReportJson){
+    public static double getThreeDayMaxTemp(JSONObject weatherReportJson){
         try{
-            JSONArray list = weatherReportJson.getJSONArray("list");
-            JSONArray main = list.getJSONArray(1);
-            String maxTemp = main.getString(2);
+            JSONObject main = weatherReportJson.getJSONObject("main");
+            double maxTemp = main.getDouble("temp_min");
             return maxTemp;
         } catch (JSONException e){
-            System.out.println();
-        } return null;
+            System.out.println(e.getMessage());
+        } return 0;
     }
 
     public static double getThreeDayMinTemp(JSONObject weatherReportJson){
