@@ -1,6 +1,5 @@
 package weatherRepoTests;
 
-import model.WeatherRequest;
 import org.json.JSONObject;
 import org.junit.Test;
 import weatherRepo.WeatherRepo;
@@ -13,7 +12,7 @@ public class WeatherRepoTests {
     @Test
     public void testReturnsCurrentTemperature(){
         WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
         WeatherRepo.setUnits("metric");
         JSONObject weatherReport = WeatherRepo.getCityWeatherInformationJSON("Tallinn");
         try{
@@ -27,7 +26,7 @@ public class WeatherRepoTests {
     public void testIfWeatherReportByCityNameResponseCityIsCorrect(){
         String requestCity = "Tallinn";
         WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
         WeatherRepo.setUnits("metric");
         JSONObject forecast;
         try {
@@ -43,7 +42,7 @@ public class WeatherRepoTests {
     public void testIfTemperatureIsValid(){
         try{
             WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-            WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+            WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
             WeatherRepo.setUnits("metric");
             JSONObject result;
             result = WeatherRepo.getCityWeatherInformationJSON("Tallinn");
@@ -59,7 +58,7 @@ public class WeatherRepoTests {
     public void testIfReturnsJsonForCityWeatherReport(){
         try{
             WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-            WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+            WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
             WeatherRepo.setUnits("metric");
             WeatherRepo.getCityWeatherInformationJSON("Tallinn");
         } catch (Exception e){

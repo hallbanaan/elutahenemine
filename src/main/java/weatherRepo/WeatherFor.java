@@ -10,7 +10,9 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -22,18 +24,21 @@ public class WeatherFor implements Weather{
 
     public static JSONObject getCityForecastInfoJSON (String cityName){
         JSONObject weatherReportJson = null;
+        String line;
         try {
             URL url = new URL(apiCallUrl + cityName + "&units=" + units + "&appid=" + apiKey);
             URLConnection newCon = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(newCon.getInputStream()));
-            String readerResult = reader.readLine();
-            reader.close();
-            try{
-                weatherReportJson = new JSONObject(readerResult);
-                return weatherReportJson;
-            } catch (JSONException e){
-                System.out.println(e.getMessage());
+            while ((line = reader.readLine()) != null){
+                try{
+                    weatherReportJson = new JSONObject(line);
+                    return weatherReportJson;
+                } catch (JSONException e){
+                    System.out.println(e.getMessage());
+                }
             }
+            reader.close();
+
         } catch (MalformedURLException e){
             System.out.println(e.getMessage());
         } catch (IOException e){
@@ -41,7 +46,6 @@ public class WeatherFor implements Weather{
         }
         return weatherReportJson;
     }
-
 
     public static JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
         JSONArray list;
@@ -56,21 +60,24 @@ public class WeatherFor implements Weather{
 
     public static String getCityName(JSONObject weatherReportJson){
         String cityName = "Null";
-        try{
-            cityName = weatherReportJson.getString("name");
+        try {
+            JSONObject city = weatherReportJson.getJSONObject("city");
+            cityName = city.getString("name");
         } catch (JSONException e){
             System.out.println(e.getMessage());
-        } return cityName;
+        }
+         return cityName;
     }
 
-    public static double getThreeDayMaxTemp(JSONObject weatherReportJson){
+    public static String getThreeDayMaxTemp(JSONObject weatherReportJson){
         try{
-            JSONObject main = weatherReportJson.getJSONObject("main");
-            double maxTemp = main.getDouble("temp_max");
+            JSONArray list = weatherReportJson.getJSONArray("list");
+            JSONArray main = list.getJSONArray(1);
+            String maxTemp = main.getString(2);
             return maxTemp;
         } catch (JSONException e){
-            System.out.println(e.getMessage());
-        } return 0;
+            System.out.println();
+        } return null;
     }
 
     public static double getThreeDayMinTemp(JSONObject weatherReportJson){

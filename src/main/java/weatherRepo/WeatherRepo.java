@@ -20,15 +20,14 @@ public class WeatherRepo implements Weather{
 
     public static JSONObject getCityWeatherInformationJSON(String cityName){
         JSONObject weatherReportJson = null;
+        String line;
         try {
             URL url = new URL(apiCallUrl + cityName + "&units=" + units + "&appid=" + apiKey);
             URLConnection newCon = url.openConnection();
             BufferedReader reader = new BufferedReader(new InputStreamReader(newCon.getInputStream()));
-            String line;
             while((line = reader.readLine()) != null){
-                System.out.println(line);
                 try{
-                    weatherReportJson = new JSONObject(line.toString());
+                    weatherReportJson = new JSONObject(line);
                 } catch (JSONException e){
                     System.out.println(e.getMessage());
                 }

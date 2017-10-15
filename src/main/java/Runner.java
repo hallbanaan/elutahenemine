@@ -8,7 +8,7 @@ public class Runner {
         JSONObject report;
         WeatherRepo.setUnits("metric");
         WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
         report = WeatherRepo.getCityWeatherInformationJSON("Tallinn");
         System.out.println(report);
     }
