@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static model.Files.readInputCityNameFromFile;
+
 public class Runner {
 
     public static void JSONWeatherReport(){
@@ -20,7 +22,8 @@ public class Runner {
 
 
     public static void main(String[] args){
-        JSONWeatherReport();
+        //JSONWeatherReport();
+        readInputCityNameFromFile();
     }
 }
 

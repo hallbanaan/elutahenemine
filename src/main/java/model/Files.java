@@ -1,18 +1,27 @@
 package model;
 
-import org.apache.commons.io.FileUtils;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Files {
 
-    private static String readInputCityNameFromFile() {
-        File file = new File("C:\\Users\\Kersti\\Documents\\GitHub\\elutahenemine\\Failid\\input.txt");
+    public static String readInputCityNameFromFile() {
+        File file = new File("C:\\Users\\Kersti\\Documents\\GitHub\\elutahenemine\\Failid");
         try {
-            String cityName = FileUtils.readFileToString(file);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            StringBuffer fileContents = new StringBuffer();
+            String line = br.readLine();
+            fileContents.append(line);
+            line = br.readLine();
+            br.close();
+            String cityName = fileContents.toString();
             return cityName;
+        } catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
         } catch (IOException e){
-
-        } return null;
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }

@@ -40,7 +40,7 @@ public class WeatherRepo implements Weather{
         }return weatherReportJson;
     }
 
-    public double getCurrentTemperature(JSONObject weatherReportJson){
+    public static double getCurrentTemperature(JSONObject weatherReportJson){
         try {
             JSONObject mainInfo = weatherReportJson.getJSONObject("main");
             double currentTemperature = mainInfo.getDouble("temp");
@@ -51,7 +51,7 @@ public class WeatherRepo implements Weather{
         return 0;
     }
 
-    public String getCityName(JSONObject weatherReportJson){
+    public static String getCityName(JSONObject weatherReportJson){
         String cityName = "Null";
         try{
             cityName = weatherReportJson.getString("name");

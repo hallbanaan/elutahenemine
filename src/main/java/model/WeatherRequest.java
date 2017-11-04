@@ -3,9 +3,11 @@ package model;
 import weatherRepo.WeatherFor;
 import weatherRepo.WeatherRepo;
 
+import static model.Files.readInputCityNameFromFile;
+
 public class WeatherRequest {
 
-    public String cityName;
+    public String cityName = readInputCityNameFromFile();
     public String units;
 
     public WeatherRequest(String cityName, String units){
