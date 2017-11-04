@@ -46,7 +46,7 @@ public class WeatherForTests {
         WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
         WeatherFor.setUnits("metric");
         JSONObject forecast = WeatherFor.getCityForecastInfoJSON("Tallinn");
-        String maxTemp = WeatherFor.getThreeDayMaxTemp(forecast);
+        Double maxTemp = WeatherFor.getThreeDayMaxTemp(forecast);
         //String minTemp = WeatherFor.getThreeDayMinTemp(forecast);
         //assertTrue(maxTemp >= minTemp);
     }

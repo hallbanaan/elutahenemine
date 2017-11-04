@@ -4,9 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -47,7 +45,7 @@ public class WeatherFor implements Weather{
         return weatherReportJson;
     }
 
-    public static JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
+    public JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
         JSONArray list;
         JSONObject forecastForDay = null;
         try{
@@ -96,6 +94,21 @@ public class WeatherFor implements Weather{
         } else {
             return "Unit change failed.";
         }
+    }
+
+    public String getCityCoordinates(JSONObject weatherReportJson){
+        int lon = 0;
+        int lat = 0;
+        String cityCoordinates;
+        try{
+            JSONObject cityName = weatherReportJson.getJSONObject("city");
+            JSONObject coordinate = cityName.getJSONObject("coord");
+            lon = coordinate.getInt("lon");
+            lat = coordinate.getInt("lat");
+        } catch (JSONException e){
+            System.out.println(e.getMessage());
+        }
+        return cityCoordinates = Integer.toString(lon) + ":" + Integer.toString(lat);
     }
 
     public static void setApiKey(String apiKey){
