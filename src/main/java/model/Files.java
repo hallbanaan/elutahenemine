@@ -10,9 +10,9 @@ public class Files {
         File file = new File("C:\\Users\\Kersti\\Documents\\GitHub\\elutahenemine\\Failid\\input.txt");
         try {
             String cityName = FileUtils.readFileToString(file);
+            return cityName;
         } catch (IOException e){
 
-        }
-        return cityName;
+        } return null;
     }
 }
