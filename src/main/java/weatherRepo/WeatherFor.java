@@ -78,7 +78,7 @@ public class WeatherFor implements Weather{
         } catch (JSONException e){
             System.out.println(e.getMessage());
         }
-         return cityName;
+        return cityName;
     }
 
     public static double getThreeDayMaxTemp(JSONObject weatherReportJson){

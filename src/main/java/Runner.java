@@ -53,6 +53,7 @@ public class Runner {
         JSONObject weatherForecast = JSONWeatherForecast(cityName);
         System.out.println("Ger weather forcast city coordinates");
         getCityCoordinates(weatherForecast);
+        WeatherFor.getCityName(weatherForecast);
     }
 
     private static void outputFileWriter(JSONObject weather) {
