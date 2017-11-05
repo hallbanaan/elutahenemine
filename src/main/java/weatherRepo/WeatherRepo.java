@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Scanner;
 
 public class WeatherRepo implements Weather{
 
@@ -38,6 +39,13 @@ public class WeatherRepo implements Weather{
         } catch (IOException e){
             System.out.println(e.getMessage());
         }return weatherReportJson;
+    }
+
+    public static String cityNameFromConsoleInput(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter city name: ");
+        String cityName = scanner.nextLine();
+        return cityName;
     }
 
     public static double getCurrentTemperature(JSONObject weatherReportJson){

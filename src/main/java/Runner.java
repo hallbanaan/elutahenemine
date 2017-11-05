@@ -1,13 +1,10 @@
 import org.json.JSONObject;
-import sun.applet.Main;
 import weatherRepo.WeatherRepo;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Scanner;
 
 import static model.Files.readInputCityNameFromFile;
+import static weatherRepo.WeatherRepo.cityNameFromConsoleInput;
 
 public class Runner {
 
@@ -24,8 +21,10 @@ public class Runner {
     public static void main(String[] args){
         //JSONWeatherReport();
         readInputCityNameFromFile();
-
+        cityNameFromConsoleInput();
     }
+
+
 }
 
 
