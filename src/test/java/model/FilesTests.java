@@ -11,7 +11,7 @@ public class FilesTests {
         try {
             String expectedRequestCity = "Tallinn";
             String resultCity = readInputCityNameFromFile();
-            if(expectedRequestCity != resultCity) throw new AssertionError();
+            assert expectedRequestCity.equals(resultCity);
         } catch (Exception e){
             System.out.println("Test failed because: " + e.getMessage());
         }

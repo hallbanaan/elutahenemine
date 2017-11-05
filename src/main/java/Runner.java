@@ -24,7 +24,7 @@ public class Runner {
     public static void main(String[] args){
         //JSONWeatherReport();
         readInputCityNameFromFile();
-        //System.out.println(System.getProperty("user.dir"));
+
     }
 }
 
