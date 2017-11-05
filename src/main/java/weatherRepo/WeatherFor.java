@@ -110,7 +110,7 @@ public class WeatherFor implements Weather{
         }
     }
 
-    public String getCityCoordinates(JSONObject weatherReportJson){
+    public String getCityCoordinatesForecast(JSONObject weatherReportJson){
         int lon = 0;
         int lat = 0;
         String cityCoordinates;

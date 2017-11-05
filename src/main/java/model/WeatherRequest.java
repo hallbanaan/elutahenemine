@@ -15,11 +15,11 @@ public class WeatherRequest {
         this.units = units;
 
         WeatherRepo.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherRepo.setApiCallUrl("api.openweathermap.org/data/2.5/weather?q=");
+        WeatherRepo.setApiCallUrl("http://api.openweathermap.org/data/2.5/weather?q=");
         WeatherRepo.changeWeatherUnit(units);
 
         WeatherFor.setApiKey("1d8d2592a2ae91ebd738f45541285340");
-        WeatherFor.setApiCallUrl("api.openweathermap.org/data/2.5/forecast?q=");
+        WeatherFor.setApiCallUrl("http://api.openweathermap.org/data/2.5/forecast?q=");
         WeatherFor.changeWeatherUnit(units);
 
     }
