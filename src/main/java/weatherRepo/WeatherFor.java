@@ -59,15 +59,18 @@ public class WeatherFor implements Weather{
         return cityName;
     }
 
-    public JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
-        JSONArray list;
-        JSONObject forecastForDay = null;
-        try{
-            list = weatherReportJson.getJSONArray("list");
-            forecastForDay = list.getJSONObject(dayNumber);
-        } catch (JSONException e){
-            System.out.println(e.getMessage());
-        } return forecastForDay;
+    public static JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
+        if (dayNumber<=3 && dayNumber>=1){
+            JSONArray list;
+            dayNumber-=1;
+            try{
+                String currentDate = weatherReportJson.getJSONArray("list").getJSONObject(0).getString("dt_txt");
+                System.out.println(currentDate);
+            } catch (JSONException e){
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
     }
 
     public static String getCityName(JSONObject weatherReportJson){
@@ -81,14 +84,22 @@ public class WeatherFor implements Weather{
         return cityName;
     }
 
-    public static double getThreeDayMaxTemp(JSONObject weatherReportJson){
+    public static String getThreeDayMaxTemp(JSONObject weatherReportJson){
         try{
-            JSONObject main = weatherReportJson.getJSONObject("main");
-            double maxTemp = main.getDouble("temp_min");
+            JSONArray threeDaysWeather = weatherReportJson.getJSONArray("list");
+            int forecastNumber = 1;
+            String currentMaxTemp = threeDaysWeather.getJSONObject(forecastNumber).getJSONObject("main").getString("temp_max");
+            Double.parseDouble(currentMaxTemp);
+            System.out.println(currentMaxTemp);
+            for(int i = 0; i< threeDaysWeather.length(); i++){
+                forecastNumber++;
+                String maxTemp = threeDaysWeather.getJSONObject(forecastNumber).getJSONObject("main").getString("temp_max");
+                Double.parseDouble(maxTemp);
+            }
             return maxTemp;
         } catch (JSONException e){
             System.out.println(e.getMessage());
-        } return 0;
+        } return null;
     }
 
     public static double getThreeDayMinTemp(JSONObject weatherReportJson){

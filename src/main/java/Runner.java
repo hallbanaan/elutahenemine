@@ -33,7 +33,7 @@ public class Runner {
     }
 
     public static void main(String[] args){
-        System.out.println("Getting weather report based on input.txt city");
+/*        System.out.println("Getting weather report based on input.txt city");
         String cityName = readInputCityNameFromFile();
         JSONObject weatherFromF = JSONWeatherReport(cityName);
         System.out.println("Get the current temperature in input city");
@@ -47,13 +47,15 @@ public class Runner {
         String cityNameC = cityNameFromConsoleInput();
         JSONObject weatherFromC = JSONWeatherReport(cityNameC);
         System.out.println("Get current temperature in console input city");
-        getCurrentTemperature(weatherFromC);
-
+        getCurrentTemperature(weatherFromC);*/
+        String cityName = readInputCityNameFromFile();
         System.out.println("Get weather forecast based on input.txt city");
         JSONObject weatherForecast = JSONWeatherForecast(cityName);
         System.out.println("Ger weather forcast city coordinates");
         getCityCoordinates(weatherForecast);
         WeatherFor.getCityName(weatherForecast);
+        WeatherFor.getForecastForSpecificDay(weatherForecast, 1);
+        WeatherFor.getThreeDayMaxTemp(weatherForecast);
     }
 
     private static void outputFileWriter(JSONObject weather) {
