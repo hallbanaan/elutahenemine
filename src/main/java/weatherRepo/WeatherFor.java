@@ -87,16 +87,18 @@ public class WeatherFor implements Weather{
     public static String getThreeDayMaxTemp(JSONObject weatherReportJson){
         try{
             JSONArray threeDaysWeather = weatherReportJson.getJSONArray("list");
-            int forecastNumber = 1;
+            int forecastNumber = 0;
+            String newMaxTemp;
             String currentMaxTemp = threeDaysWeather.getJSONObject(forecastNumber).getJSONObject("main").getString("temp_max");
-            Double.parseDouble(currentMaxTemp);
             System.out.println(currentMaxTemp);
             for(int i = 0; i< threeDaysWeather.length(); i++){
                 forecastNumber++;
                 String maxTemp = threeDaysWeather.getJSONObject(forecastNumber).getJSONObject("main").getString("temp_max");
-                Double.parseDouble(maxTemp);
+                if(Double.parseDouble(currentMaxTemp)<Double.parseDouble(maxTemp)){
+                    newMaxTemp = maxTemp.toString();
+                }
             }
-            return maxTemp;
+            return null;
         } catch (JSONException e){
             System.out.println(e.getMessage());
         } return null;

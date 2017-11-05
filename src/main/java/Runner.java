@@ -51,10 +51,10 @@ public class Runner {
         String cityName = readInputCityNameFromFile();
         System.out.println("Get weather forecast based on input.txt city");
         JSONObject weatherForecast = JSONWeatherForecast(cityName);
-        System.out.println("Ger weather forcast city coordinates");
+        /*System.out.println("Ger weather forcast city coordinates");
         getCityCoordinates(weatherForecast);
         WeatherFor.getCityName(weatherForecast);
-        WeatherFor.getForecastForSpecificDay(weatherForecast, 1);
+        WeatherFor.getForecastForSpecificDay(weatherForecast, 1);*/
         WeatherFor.getThreeDayMaxTemp(weatherForecast);
     }
 
