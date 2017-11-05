@@ -63,6 +63,7 @@ public class WeatherRepo implements Weather{
         try {
             JSONObject mainInfo = weatherReportJson.getJSONObject("main");
             double currentTemperature = mainInfo.getDouble("temp");
+            System.out.println(currentTemperature);
             return currentTemperature;
         } catch (JSONException e){
             System.out.println(e.getMessage());
@@ -88,7 +89,7 @@ public class WeatherRepo implements Weather{
         }
     }
 
-    public String getCityCoordinates(JSONObject weatherReportJson){
+    public static String getCityCoordinates(JSONObject weatherReportJson){
         int lon = 0;
         int lat = 0;
         String cityCoordinates;
@@ -96,10 +97,13 @@ public class WeatherRepo implements Weather{
             JSONObject coordinate = weatherReportJson.getJSONObject("coord");
             lon = coordinate.getInt("lon");
             lat = coordinate.getInt("lat");
+            cityCoordinates = Integer.toString(lon) + ":" + Integer.toString(lat);
+            System.out.println("Coordinates are (lon, lat) " + cityCoordinates);
+            return cityCoordinates;
         } catch (JSONException e){
             System.out.println(e.getMessage());
         }
-        return cityCoordinates = Integer.toString(lon) + ":" + Integer.toString(lat);
+        return null;
     }
 
     public static void setApiKey(String apiKey){
