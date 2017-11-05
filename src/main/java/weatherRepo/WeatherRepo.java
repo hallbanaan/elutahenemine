@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -39,6 +40,16 @@ public class WeatherRepo implements Weather{
         } catch (IOException e){
             System.out.println(e.getMessage());
         }return weatherReportJson;
+    }
+
+    public void outputFileWriter(JSONObject weatherReportJson){
+        try {
+            FileWriter fileWriter = new FileWriter("output.txt");
+            fileWriter.write(weatherReportJson.toString());
+            fileWriter.close();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static String cityNameFromConsoleInput(){

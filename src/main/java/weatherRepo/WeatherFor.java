@@ -42,6 +42,16 @@ public class WeatherFor implements Weather{
         return weatherReportJson;
     }
 
+    public void outputFileWriter(JSONObject weatherReportJson){
+        try {
+            FileWriter fileWriter = new FileWriter("output.txt");
+            fileWriter.write(weatherReportJson.toString());
+            fileWriter.close();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static String cityNameFromConsoleInput(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter city name: ");
