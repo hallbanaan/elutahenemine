@@ -9,10 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 public class WeatherFor implements Weather{
 
@@ -43,6 +40,13 @@ public class WeatherFor implements Weather{
             System.out.println(e.getMessage());
         }
         return weatherReportJson;
+    }
+
+    public static String cityNameFromConsoleInput(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter city name: ");
+        String cityName = scanner.nextLine();
+        return cityName;
     }
 
     public JSONObject getForecastForSpecificDay(JSONObject weatherReportJson, int dayNumber){
